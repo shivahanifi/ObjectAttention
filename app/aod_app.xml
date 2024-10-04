@@ -1,0 +1,64 @@
+
+<application>
+<name>Attentive object detection</name>
+<version>1.0</version>
+
+<!-- Modules -->
+
+	<module>
+		<name>yarpdataplayer</name>
+		<parameters>--withExtraTimeCol 2</parameters>
+		<node>localhost</node>
+	</module>
+
+	<module>
+		<name>yarpview</name>
+		<parameters>--name /view/rgb_propag --w 640 --h 480</parameters>
+		<node>localhost</node>
+	</module>
+
+	<module>
+		<name>yarpview</name>
+		<parameters>--name /view/bbox_final --w 640 --h 480</parameters>
+		<node>localhost</node>
+	</module>
+
+<!-- Connections -->
+
+     <!-- RGB image propagated through vtd_bbox -->
+     <!-- visualize raw image -->
+	<connection>
+		<from>/vtd_bbox/propag:o</from>
+		<to>/view/rgb_propag</to>
+		<protocol>mjpeg</protocol>
+	</connection>
+
+    <!-- raw image to input -->
+	<connection>
+		<from>/vtd_bbox/propag:o</from>
+		<to>/aod/image:i</to>
+		<protocol>mjpeg</protocol>
+	</connection>
+
+	<!-- heatmap bbox data to input -->
+    <connection>
+		<from>/vtd_bbox/hm_bbox:o</from>
+		<to>/aod/hmbbox:i</to>
+		<protocol>tcp</protocol>
+	</connection>
+
+	<!-- object detection data to input -->
+    <connection>
+		<from>/detection/dets:o</from>
+		<to>/aod/objdet:i</to>
+		<protocol>tcp</protocol>
+	</connection>
+
+    <!-- visualize bbox -->
+	<connection>
+		<from>/aod/detect:o</from>
+		<to>/view/bbox_final</to>
+		<protocol>mjpeg</protocol>
+	</connection>
+
+</application>
