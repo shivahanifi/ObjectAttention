@@ -13,9 +13,9 @@ The proposed dataset depicts human-robot interactions in a table-top scenario wh
 
 ## Requirements
 The following modules are required for the proposed pipeline. 
-### [OpenPose](https://github.com/CMU-Perceptual-Computing-Lab/openpose)
-Please follow the instructions provided in the official repository for proper installation.
-### [Online object detection](https://github.com/hsp-iit/online-detection)
-Please follow the instructions provided in the official repository for proper installation.
+### OpenPose
+This is the requirement of _Human Attention Estimation_ pathway to detect anatomical key-points. Please follow the instructions provided in the [OpenPose repository](https://github.com/CMU-Perceptual-Computing-Lab/openpose) for proper installation.
+### Online object detection
+This is the erequirement of _Object Detection_ pathway to detect objects. Please follow the instructions provided in the [Online detection repository](https://github.com/hsp-iit/online-detection) for proper installation.
 ## Citation
 ## License
