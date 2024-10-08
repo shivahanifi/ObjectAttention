@@ -18,4 +18,4 @@ Please follow the instructions provided in the official repository for proper in
 ### [Online object detection](https://github.com/hsp-iit/online-detection)
 Please follow the instructions provided in the official repository for proper installation.
 ## Citation
-## Licence
+## License
